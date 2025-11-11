@@ -1,6 +1,8 @@
 import { AnimalsType } from "@/lib/tempType";
 import { AnimalGender, AnimalStatus } from "@/lib/enums";
 import RootPage from "@/components/RootPage";
+import HeaderPage from "../components/shared/HeaderPage";
+import { PawPrint } from "lucide-react";
 
 export default async function Home() {
   const animals: AnimalsType[] = [
@@ -256,5 +258,10 @@ export default async function Home() {
     },
   ];
 
-  return <RootPage animals={animals} />;
+  return (
+    <>
+      <HeaderPage title="Animals List" icon={PawPrint} backTo={{ title: "Animal List", link: "/" }} />
+      <RootPage animals={animals} />
+    </>
+  );
 }
