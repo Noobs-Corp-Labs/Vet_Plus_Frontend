@@ -1,65 +1,260 @@
-import Image from "next/image";
+import { AnimalsType } from "@/lib/tempType";
+import { AnimalGender, AnimalStatus } from "@/lib/enums";
+import RootPage from "@/components/RootPage";
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+export default async function Home() {
+  const animals: AnimalsType[] = [
+    {
+      id: "1",
+      ear_tag: "BR001",
+      name: "Estrela",
+      description: "Vaca leiteira saudável e dócil.",
+      birth_date: "2020-03-15",
+      weight: 520.4,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.LACTATING,
+    },
+    {
+      id: "2",
+      ear_tag: "BR002",
+      name: "Trovão",
+      description: "Touro de excelente genética.",
+      birth_date: "2019-07-08",
+      weight: 780.2,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "3",
+      ear_tag: "BR003",
+      name: "Aurora",
+      description: "Fêmea prenha com histórico de boa produção.",
+      birth_date: "2021-01-21",
+      weight: 480.0,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.PREGNANT,
+    },
+    {
+      id: "4",
+      ear_tag: "BR004",
+      name: "Nuvem",
+      description: "Bezerra jovem, dócil e ativa.",
+      birth_date: "2023-05-11",
+      weight: 210.5,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "5",
+      ear_tag: "BR005",
+      name: "Relâmpago",
+      description: "Macho forte destinado à reprodução.",
+      birth_date: "2020-09-29",
+      weight: 740.7,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.INSEMINATED,
+    },
+    {
+      id: "6",
+      ear_tag: "BR006",
+      name: "Luna",
+      description: "Produz leite de alta qualidade.",
+      birth_date: "2021-04-05",
+      weight: 495.3,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.LACTATING,
+    },
+    {
+      id: "7",
+      ear_tag: "BR007",
+      name: "Sol",
+      description: "Animal tranquilo, ideal para cruzamento.",
+      birth_date: "2018-02-14",
+      weight: 680.1,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "8",
+      ear_tag: "BR008",
+      name: "Esperança",
+      description: "Fêmea prenha com boa linhagem leiteira.",
+      birth_date: "2021-08-10",
+      weight: 505.6,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.PREGNANT,
+    },
+    {
+      id: "9",
+      ear_tag: "BR009",
+      name: "Valente",
+      description: "Touro vigoroso, excelente para monta natural.",
+      birth_date: "2019-12-02",
+      weight: 790.9,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "10",
+      ear_tag: "BR010",
+      name: "Serena",
+      description: "Fêmea calma e de boa saúde.",
+      birth_date: "2022-06-19",
+      weight: 360.8,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "11",
+      ear_tag: "BR011",
+      name: "Bento",
+      description: "Animal usado em programas genéticos.",
+      birth_date: "2018-10-25",
+      weight: 755.0,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "12",
+      ear_tag: "BR012",
+      name: "Lua",
+      description: "Fêmea inseminada recentemente.",
+      birth_date: "2021-11-03",
+      weight: 475.2,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.INSEMINATED,
+    },
+    {
+      id: "13",
+      ear_tag: "BR013",
+      name: "Brilho",
+      description: "Bezerra ativa e saudável.",
+      birth_date: "2023-03-22",
+      weight: 190.3,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "14",
+      ear_tag: "BR014",
+      name: "Atlas",
+      description: "Touro de grande porte.",
+      birth_date: "2019-01-10",
+      weight: 810.5,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "15",
+      ear_tag: "BR015",
+      name: "Flor",
+      description: "Fêmea prenha com bom histórico produtivo.",
+      birth_date: "2020-05-06",
+      weight: 500.1,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.PREGNANT,
+    },
+    {
+      id: "16",
+      ear_tag: "BR016",
+      name: "Céu",
+      description: "Bezerro calmo e sociável.",
+      birth_date: "2023-07-01",
+      weight: 200.0,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "17",
+      ear_tag: "BR017",
+      name: "Luz",
+      description: "Vaca leiteira com boa produtividade.",
+      birth_date: "2020-08-14",
+      weight: 520.9,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.LACTATING,
+    },
+    {
+      id: "18",
+      ear_tag: "BR018",
+      name: "Força",
+      description: "Animal macho em fim de ciclo produtivo.",
+      birth_date: "2016-04-22",
+      weight: 845.0,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.END_OF_LIFE,
+    },
+    {
+      id: "19",
+      ear_tag: "BR019",
+      name: "Branca",
+      description: "Vaca inseminada recentemente.",
+      birth_date: "2021-09-09",
+      weight: 490.2,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.INSEMINATED,
+    },
+    {
+      id: "20",
+      ear_tag: "BR020",
+      name: "Cristal",
+      description: "Fêmea jovem e saudável.",
+      birth_date: "2022-01-19",
+      weight: 345.6,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "21",
+      ear_tag: "BR021",
+      name: "Rosa",
+      description: "Fêmea prenha e tranquila.",
+      birth_date: "2021-02-25",
+      weight: 480.9,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.PREGNANT,
+    },
+    {
+      id: "22",
+      ear_tag: "BR022",
+      name: "Falcão",
+      description: "Macho forte e ativo.",
+      birth_date: "2019-10-10",
+      weight: 760.3,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "23",
+      ear_tag: "BR023",
+      name: "Margarida",
+      description: "Fêmea de alta produção leiteira.",
+      birth_date: "2020-07-13",
+      weight: 505.7,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.LACTATING,
+    },
+    {
+      id: "24",
+      ear_tag: "BR024",
+      name: "Leão",
+      description: "Animal experiente em reprodução.",
+      birth_date: "2018-09-04",
+      weight: 800.0,
+      gender: AnimalGender.MALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+    {
+      id: "25",
+      ear_tag: "BR025",
+      name: "Neve",
+      description: "Bezerra curiosa e saudável.",
+      birth_date: "2023-04-18",
+      weight: 215.5,
+      gender: AnimalGender.FEMALE,
+      status: AnimalStatus.AVAILABLE,
+    },
+  ];
+
+  return <RootPage animals={animals} />;
 }
