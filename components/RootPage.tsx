@@ -11,7 +11,7 @@ type PropsType = {
 
 export default function RootPage({ animals }: PropsType) {
    return (
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 overflow-y-auto h-[87vh]">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 overflow-y-auto h-[89vh]">
          {animals.map(animal => (
             <Link href={`/animals/${animal.id}`} 
                key={`animal_card_${animal.ear_tag || animal.id}`}

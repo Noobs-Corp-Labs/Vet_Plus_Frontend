@@ -9,6 +9,7 @@ export default async function Home() {
     {
       id: "1",
       ear_tag: "BR001",
+      breed: "Holandesa",
       name: "Estrela",
       description: "Vaca leiteira saudável e dócil.",
       birth_date: "2020-03-15",
@@ -19,6 +20,7 @@ export default async function Home() {
     {
       id: "2",
       ear_tag: "BR002",
+      breed: "Holandesa",
       name: "Trovão",
       description: "Touro de excelente genética.",
       birth_date: "2019-07-08",
@@ -29,6 +31,7 @@ export default async function Home() {
     {
       id: "3",
       ear_tag: "BR003",
+      breed: "Holandesa",
       name: "Aurora",
       description: "Fêmea prenha com histórico de boa produção.",
       birth_date: "2021-01-21",
@@ -39,6 +42,7 @@ export default async function Home() {
     {
       id: "4",
       ear_tag: "BR004",
+      breed: "Holandesa",
       name: "Nuvem",
       description: "Bezerra jovem, dócil e ativa.",
       birth_date: "2023-05-11",
@@ -49,6 +53,7 @@ export default async function Home() {
     {
       id: "5",
       ear_tag: "BR005",
+      breed: "Holandesa",
       name: "Relâmpago",
       description: "Macho forte destinado à reprodução.",
       birth_date: "2020-09-29",
@@ -59,6 +64,7 @@ export default async function Home() {
     {
       id: "6",
       ear_tag: "BR006",
+      breed: "Holandesa",
       name: "Luna",
       description: "Produz leite de alta qualidade.",
       birth_date: "2021-04-05",
@@ -69,6 +75,7 @@ export default async function Home() {
     {
       id: "7",
       ear_tag: "BR007",
+      breed: "Holandesa",
       name: "Sol",
       description: "Animal tranquilo, ideal para cruzamento.",
       birth_date: "2018-02-14",
@@ -79,6 +86,7 @@ export default async function Home() {
     {
       id: "8",
       ear_tag: "BR008",
+      breed: "Holandesa",
       name: "Esperança",
       description: "Fêmea prenha com boa linhagem leiteira.",
       birth_date: "2021-08-10",
@@ -89,6 +97,7 @@ export default async function Home() {
     {
       id: "9",
       ear_tag: "BR009",
+      breed: "Holandesa",
       name: "Valente",
       description: "Touro vigoroso, excelente para monta natural.",
       birth_date: "2019-12-02",
@@ -99,6 +108,7 @@ export default async function Home() {
     {
       id: "10",
       ear_tag: "BR010",
+      breed: "Holandesa",
       name: "Serena",
       description: "Fêmea calma e de boa saúde.",
       birth_date: "2022-06-19",
@@ -109,6 +119,7 @@ export default async function Home() {
     {
       id: "11",
       ear_tag: "BR011",
+      breed: "Holandesa",
       name: "Bento",
       description: "Animal usado em programas genéticos.",
       birth_date: "2018-10-25",
@@ -119,6 +130,7 @@ export default async function Home() {
     {
       id: "12",
       ear_tag: "BR012",
+      breed: "Holandesa",
       name: "Lua",
       description: "Fêmea inseminada recentemente.",
       birth_date: "2021-11-03",
@@ -129,6 +141,7 @@ export default async function Home() {
     {
       id: "13",
       ear_tag: "BR013",
+      breed: "Holandesa",
       name: "Brilho",
       description: "Bezerra ativa e saudável.",
       birth_date: "2023-03-22",
@@ -139,6 +152,7 @@ export default async function Home() {
     {
       id: "14",
       ear_tag: "BR014",
+      breed: "Holandesa",
       name: "Atlas",
       description: "Touro de grande porte.",
       birth_date: "2019-01-10",
@@ -149,6 +163,7 @@ export default async function Home() {
     {
       id: "15",
       ear_tag: "BR015",
+      breed: "Holandesa",
       name: "Flor",
       description: "Fêmea prenha com bom histórico produtivo.",
       birth_date: "2020-05-06",
@@ -159,6 +174,7 @@ export default async function Home() {
     {
       id: "16",
       ear_tag: "BR016",
+      breed: "Holandesa",
       name: "Céu",
       description: "Bezerro calmo e sociável.",
       birth_date: "2023-07-01",
@@ -169,6 +185,7 @@ export default async function Home() {
     {
       id: "17",
       ear_tag: "BR017",
+      breed: "Holandesa",
       name: "Luz",
       description: "Vaca leiteira com boa produtividade.",
       birth_date: "2020-08-14",
@@ -179,6 +196,7 @@ export default async function Home() {
     {
       id: "18",
       ear_tag: "BR018",
+      breed: "Holandesa",
       name: "Força",
       description: "Animal macho em fim de ciclo produtivo.",
       birth_date: "2016-04-22",
@@ -189,6 +207,7 @@ export default async function Home() {
     {
       id: "19",
       ear_tag: "BR019",
+      breed: "Holandesa",
       name: "Branca",
       description: "Vaca inseminada recentemente.",
       birth_date: "2021-09-09",
@@ -199,6 +218,7 @@ export default async function Home() {
     {
       id: "20",
       ear_tag: "BR020",
+      breed: "Holandesa",
       name: "Cristal",
       description: "Fêmea jovem e saudável.",
       birth_date: "2022-01-19",
@@ -209,6 +229,7 @@ export default async function Home() {
     {
       id: "21",
       ear_tag: "BR021",
+      breed: "Holandesa",
       name: "Rosa",
       description: "Fêmea prenha e tranquila.",
       birth_date: "2021-02-25",
@@ -219,6 +240,7 @@ export default async function Home() {
     {
       id: "22",
       ear_tag: "BR022",
+      breed: "Holandesa",
       name: "Falcão",
       description: "Macho forte e ativo.",
       birth_date: "2019-10-10",
@@ -229,6 +251,7 @@ export default async function Home() {
     {
       id: "23",
       ear_tag: "BR023",
+      breed: "Holandesa",
       name: "Margarida",
       description: "Fêmea de alta produção leiteira.",
       birth_date: "2020-07-13",
@@ -239,6 +262,7 @@ export default async function Home() {
     {
       id: "24",
       ear_tag: "BR024",
+      breed: "Holandesa",
       name: "Leão",
       description: "Animal experiente em reprodução.",
       birth_date: "2018-09-04",
@@ -249,6 +273,7 @@ export default async function Home() {
     {
       id: "25",
       ear_tag: "BR025",
+      breed: "Holandesa",
       name: "Neve",
       description: "Bezerra curiosa e saudável.",
       birth_date: "2023-04-18",
@@ -260,7 +285,7 @@ export default async function Home() {
 
   return (
     <>
-      <HeaderPage title="Animals List" icon={PawPrint} backTo={{ title: "Animal List", link: "/" }} />
+      <HeaderPage title="Animals List" icon={PawPrint} />
       <RootPage animals={animals} />
     </>
   );

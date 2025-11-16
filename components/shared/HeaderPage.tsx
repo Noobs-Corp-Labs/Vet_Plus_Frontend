@@ -18,7 +18,7 @@ export default function HeaderPage({ title, icon, action, help, backTo }: Header
     const Icon = icon;
 
    return (
-      <div className="flex items-center justify-between border-b-2 border-primary h-14 mt-0 mb-8">
+      <div className="flex items-center justify-between border-b-2 border-primary h-[5vh] mt-0 mb-8">
          <div className="flex items-center gap-2 mb-1 mx-2">
             {Icon && <Icon className="w-10 h-10 stroke-primary" strokeWidth={2.5} />}
             
