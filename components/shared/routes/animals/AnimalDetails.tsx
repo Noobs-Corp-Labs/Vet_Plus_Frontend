@@ -2,7 +2,8 @@
 
 import { AnimalsType } from "@/lib/tempType"
 import { Separator } from "@/components/ui/separator"
-import { LabelValueDisplay } from "../../LabelValueDisplay"
+import { LabelValueDisplay } from "@/components/shared/LabelValueDisplay"
+import { Calendar } from "@/components/ui/calendar"
 
 interface PropsType {
    animalObj: AnimalsType
@@ -11,7 +12,7 @@ interface PropsType {
 export default function AnimalDetails({ animalObj }: PropsType) {
    return (
       <div className="h-[86vh] flex">
-         <div className="w-[50%] h-full">
+         <div className="w-[55%] h-full">
             <div className="grid grid-cols-3">
                <LabelValueDisplay title="Nome" text={animalObj.name} />
                <LabelValueDisplay title="Gênero" text={animalObj.gender} />
@@ -31,9 +32,8 @@ export default function AnimalDetails({ animalObj }: PropsType) {
             </div>
          </div>
          <Separator orientation="vertical" className="bg-gray-400 h-full w-0.5 mx-2"/>
-         <div className="w-[50%] h-full bg-red-400">
-            <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">{animalObj.name}</h2>
-            <h1>{animalObj.name}</h1>
+         <div className="w-[45%] h-full">
+            <Calendar mode="single" className="w-full wrounded-lg" />
          </div>
       </div>
    )
