@@ -11,4 +11,5 @@ export type AnimalsType = {
   weight: number;
   gender: AnimalGender;
   status: AnimalStatus;
+  last_predict?: string; //NEW:
 }
