@@ -89,15 +89,15 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                            <span>{date.getDate()}</span>
                            {dayEvents.length > 0 && (
                               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-0.5 w-[85%] justify-center">
-                                 {dayEvents.slice(0, 3).map((event, idx) => (
+                                 {dayEvents.slice(0, 5).map((event, idx) => (
                                     <div
                                        key={idx}
-                                       className={`h-1 flex-1 rounded-full ${eventStyles[event.type].bg}`}
+                                       className={`h-4 w-4 rounded-full ${eventStyles[event.type].bg}`}
                                        title={event.title}
                                     />
                                  ))}
-                                 {dayEvents.length > 3 && (
-                                    <div className="h-1 w-1 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} eventos`} />
+                                 {dayEvents.length > 5 && (
+                                    <div className="h-4 w-4 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} eventos`} />
                                  )}
                               </div>
                            )}

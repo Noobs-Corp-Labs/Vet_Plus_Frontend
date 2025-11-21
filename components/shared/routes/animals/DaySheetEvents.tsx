@@ -9,7 +9,7 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { CalendarEvent } from "@/components/shared/events/EventsAux";
+import { CalendarEvent, eventStyles } from "@/components/shared/events/EventsAux";
 import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -41,23 +41,21 @@ export const DaySheetEvents = forwardRef<DaySheetEventsRefType, PropsType>(({ da
       <Sheet open={isSheetOpen} onOpenChange={onSheetClose}>
          <SheetContent side="right" className="sm:max-w-[45%] w-full overflow-y-auto">
          <SheetHeader>
-            <SheetTitle>
+            <SheetTitle className="text-4xl">
                {date ? format(date, "dd 'de' MMMM 'de' yyyy", { locale: ptBR }) : "Detalhes do Dia"}
             </SheetTitle>
-            <SheetDescription>
-               {events.length > 0 
-               ? `Você tem ${events.length} eventos agendados para este dia.`
-               : "Nenhum evento registrado para esta data."}
+            <SheetDescription className="flex justify-end">
+               <Button>New Event</Button>
             </SheetDescription>
          </SheetHeader>
 
-         <div className="p-6 flex flex-col gap-4">
+         <div className="p-6 flex flex-col gap-4 overflow-scroll">
             {events.length === 0 ? (
-               <p className="text-muted-foreground text-sm">Sem atividades.</p>
+               <p className="text-muted-foreground">Sem atividades.</p>
             ) : (
                events.map((event, index) => (
-               <div key={index} className="border p-4 rounded-lg shadow-sm">
-                  <p className="font-bold capitalize">{event.type}</p>
+               <div key={index} className={`border px-4 py-2 rounded-md shadow-sm ${eventStyles[event.type].border} ${eventStyles[event.type].bg2}`}>
+                  <h3 className={`font-bold capitalize ${eventStyles[event.type].text}`}>{event.type}</h3>
                   <p>{event.title}</p>
                </div>
                ))
@@ -66,7 +64,7 @@ export const DaySheetEvents = forwardRef<DaySheetEventsRefType, PropsType>(({ da
 
          <SheetFooter>
             <SheetClose asChild>
-               <Button type="button">Fechar</Button>
+               <Button variant="outline" type="button">Fechar</Button>
             </SheetClose>
          </SheetFooter>
          </SheetContent>
