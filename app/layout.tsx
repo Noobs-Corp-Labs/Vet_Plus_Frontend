@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full flex flex-col">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full min-h-screen p-6`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full min-h-screen`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -35,7 +35,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            {children}
+            <main className="h-full w-full p-6">
+              {children}
+            </main>
           </TooltipProvider>
         </ThemeProvider>
       </body>

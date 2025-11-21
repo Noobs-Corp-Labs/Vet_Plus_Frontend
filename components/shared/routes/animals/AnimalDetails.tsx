@@ -5,7 +5,8 @@ import { Separator } from "@/components/ui/separator"
 import { LabelValueDisplay } from "@/components/shared/LabelValueDisplay"
 import { Calendar, CalendarDayButton } from "@/components/ui/calendar"
 import { CalendarEvent, eventStyles } from "@/components/shared/events/EventsAux"
-import { useState } from "react"
+import { useRef, useState } from "react"
+import { DaySheetEvents, DaySheetEventsRefType } from "./DaySheetEvents"
 
 interface PropsType {
    animalObj: AnimalsType
@@ -32,7 +33,18 @@ export default function AnimalDetails({ animalObj }: PropsType) {
       { date: new Date(2025, 10, 25), type: 'nutricional', title: 'Ajuste de Dieta' },
    ]
 
-   const [selectDay, setSelectedDay] = useState<Date | undefined>(undefined)
+   const [selectDay, setSelectedDay] = useState<Date | undefined>(undefined);
+
+   const daySheetEventsRef = useRef<DaySheetEventsRefType>(null);
+
+   const handleDaySelect = (date: Date | undefined) => {
+      setSelectedDay(date)
+      if (date) {
+         daySheetEventsRef.current?.open();
+      }
+   }
+
+   const selectedDayEvents = selectDay ? getEventsForDate(selectDay, events) : []
 
    return (
       <div className="h-[86vh] flex">
@@ -59,15 +71,14 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                   </div>
                )}
             </div>
-            <Separator orientation="horizontal" className="bg-gray-400"/>
-            {selectDay?.getDate()}
          </div>
          <Separator orientation="vertical" className="bg-gray-400 h-full w-0.5 mx-2"/>
          <div className="w-[45%] h-full">
             <Calendar
                className="w-full wrounded-lg"
                mode="single"
-               onSelect={setSelectedDay}
+               selected={selectDay}
+               onSelect={handleDaySelect}
                components={{
                   DayButton: (props) => {
                      const date = props.day.date
@@ -75,25 +86,31 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                      
                      return (
                         <CalendarDayButton {...props}>
-                            <span>{date.getDate()}</span>
-                            {dayEvents.length > 0 && (
-                               <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-0.5 w-[85%] justify-center">
-                                  {dayEvents.slice(0, 3).map((event, idx) => (
-                                     <div
-                                        key={idx}
-                                        className={`h-1 flex-1 rounded-full ${eventStyles[event.type].bg}`}
-                                        title={event.title}
-                                     />
-                                  ))}
-                                  {dayEvents.length > 3 && (
-                                     <div className="h-1 w-1 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} eventos`} />
-                                  )}
-                               </div>
-                            )}
+                           <span>{date.getDate()}</span>
+                           {dayEvents.length > 0 && (
+                              <div className="absolute bottom-1 left-1/2 -translate-x-1/2 flex gap-0.5 w-[85%] justify-center">
+                                 {dayEvents.slice(0, 3).map((event, idx) => (
+                                    <div
+                                       key={idx}
+                                       className={`h-1 flex-1 rounded-full ${eventStyles[event.type].bg}`}
+                                       title={event.title}
+                                    />
+                                 ))}
+                                 {dayEvents.length > 3 && (
+                                    <div className="h-1 w-1 rounded-full bg-gray-400" title={`+${dayEvents.length - 3} eventos`} />
+                                 )}
+                              </div>
+                           )}
                         </CalendarDayButton>
                      )
                   }
                }}
+            />
+            <DaySheetEvents
+               ref={daySheetEventsRef}
+               date={selectDay}
+               events={selectedDayEvents}
+               onEventDatailsClose={() => setSelectedDay(undefined)}
             />
          </div>
       </div>
