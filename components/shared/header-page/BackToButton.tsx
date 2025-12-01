@@ -7,7 +7,7 @@ export function BackToButton({ link, title = "Voltar" }: { link: string; title?:
       <Tooltip>
          <TooltipTrigger asChild>
             <Link href={link} className="flex items-center gap-1">
-               <Undo2 size={25} strokeWidth={2.5}/>
+               <Undo2 size={25} strokeWidth={2.5} className="stroke-primary"/>
             </Link>
          </TooltipTrigger>
          <TooltipContent>

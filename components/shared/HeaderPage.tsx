@@ -22,7 +22,7 @@ export default function HeaderPage({ title, icon, action, help, backTo }: Header
          <div className="flex items-center gap-2 mb-1 mx-2">
             {Icon && <Icon className="w-10 h-10 stroke-primary" strokeWidth={2.5} />}
             
-            <h1 className="text-4xl font-semibold inline-flex items-center gap-1 whitespace-nowrap">
+            <h1 className="text-4xl font-semibold inline-flex items-center gap-1 whitespace-nowrap text-primary">
                {title}
                {help && <HelpIcon help={help} />}
             </h1>

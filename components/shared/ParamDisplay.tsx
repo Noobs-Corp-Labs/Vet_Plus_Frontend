@@ -5,7 +5,7 @@ type PropsType = {
 
 export default function ParamDisplay({ title, value }: PropsType) {
    return (<div className="flex flex-col space-y-1">
-      <h4 className="font-semibold w-full whitespace-normal wrap-break-word">
+      <h4 className="font-semibold w-full whitespace-normal wrap-break-word text-primary">
          {title || ""}
       </h4>
       <p className="text-xs text-muted-foreground">{value}</p>

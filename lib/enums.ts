@@ -11,3 +11,11 @@ export enum AnimalStatus {
   INSEMINATED = "Inseminada",
   END_OF_LIFE = "Fim da Vida",
 }
+
+export enum EventType {
+  NUTRITIONAL = "Nutricional",
+  REPRODUCTIVE = "Reprodutivo",
+  HEALTH = "Saúde",
+  PERFORMANCE = "Performance",
+  GENERAL = "Geral"
+}

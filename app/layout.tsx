@@ -1,18 +1,24 @@
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from 'next/font/local';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const kadwa = localFont({
+  src: [
+    {
+      path: '../public/fonts/Kadwa-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/Kadwa-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: "--font-kadwa",
 });
 
 export const metadata: Metadata = {
@@ -27,10 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full flex flex-col">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full min-h-screen`}>
+      <body className={`${kadwa.className} antialiased h-full min-h-screen`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

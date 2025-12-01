@@ -7,6 +7,9 @@ import { Calendar, CalendarDayButton } from "@/components/ui/calendar"
 import { CalendarEvent, eventStyles } from "@/components/shared/events/EventsAux"
 import { useRef, useState } from "react"
 import { DaySheetEvents, DaySheetEventsRefType } from "./DaySheetEvents"
+import { NewEventDialog, NewEventDialogRefType } from "../events/NewEventDialog"
+import { EventType } from "@/lib/enums"
+import { Card } from "@/components/ui/card"
 
 interface PropsType {
    animalObj: AnimalsType
@@ -23,19 +26,20 @@ function getEventsForDate(date: Date, events: CalendarEvent[]) {
 export default function AnimalDetails({ animalObj }: PropsType) {
 
    const events: CalendarEvent[] = [
-      { date: new Date(2025, 10, 10), type: 'nutricional', title: 'Suplementação Mineral' },
-      { date: new Date(2025, 10, 10), type: 'saude', title: 'Vacinação' },
-      { date: new Date(2025, 10, 15), type: 'reprodutivo', title: 'Inseminação' },
-      { date: new Date(2025, 10, 15), type: 'nutricional', title: 'Pesagem' },
-      { date: new Date(2025, 10, 20), type: 'performance', title: 'Avaliação de Ganho' },
-      { date: new Date(2025, 10, 25), type: 'geral', title: 'Manutenção' },
-      { date: new Date(2025, 10, 25), type: 'saude', title: 'Vermifugação' },
-      { date: new Date(2025, 10, 25), type: 'nutricional', title: 'Ajuste de Dieta' },
+      { date: new Date(2025, 10, 10), type: EventType.NUTRITIONAL, title: 'Suplementação Mineral' },
+      { date: new Date(2025, 10, 10), type: EventType.HEALTH, title: 'Vacinação' },
+      { date: new Date(2025, 10, 15), type: EventType.REPRODUCTIVE, title: 'Inseminação' },
+      { date: new Date(2025, 10, 15), type: EventType.NUTRITIONAL, title: 'Pesagem' },
+      { date: new Date(2025, 10, 20), type: EventType.PERFORMANCE, title: 'Avaliação de Ganho' },
+      { date: new Date(2025, 10, 25), type: EventType.GENERAL, title: 'Manutenção' },
+      { date: new Date(2025, 10, 25), type: EventType.HEALTH, title: 'Vermifugação' },
+      { date: new Date(2025, 10, 25), type: EventType.NUTRITIONAL, title: 'Ajuste de Dieta' },
    ]
 
    const [selectDay, setSelectedDay] = useState<Date | undefined>(undefined);
 
    const daySheetEventsRef = useRef<DaySheetEventsRefType>(null);
+   const newEventDialogRef = useRef<NewEventDialogRefType>(null);
 
    const handleDaySelect = (date: Date | undefined) => {
       setSelectedDay(date)
@@ -47,9 +51,9 @@ export default function AnimalDetails({ animalObj }: PropsType) {
    const selectedDayEvents = selectDay ? getEventsForDate(selectDay, events) : []
 
    return (
-      <div className="h-[86vh] flex">
+      <div className="h-[86vh] flex gap-4">
          <div className="w-[55%] h-full">
-            <div className="grid grid-cols-3">
+            <Card className="grid grid-cols-3 p-4 mb-4">
                <LabelValueDisplay title="Nome" text={animalObj.name} />
                <LabelValueDisplay title="Gênero" text={animalObj.gender} />
                <LabelValueDisplay title="Código Orelha" text={animalObj.ear_tag} />
@@ -65,17 +69,17 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                <div className="col-span-1">
                   <LabelValueDisplay title="Status" text={animalObj.status} />
                </div>
+               </Card>
                {animalObj.last_predict && (
-                  <div className="col-span-3">
+                  <Card className="col-span-3 p-4">
                      <LabelValueDisplay title="Ultima Recomendação" text={animalObj.last_predict} />
-                  </div>
+                  </Card>
                )}
-            </div>
          </div>
-         <Separator orientation="vertical" className="bg-gray-400 h-full w-0.5 mx-2"/>
          <div className="w-[45%] h-full">
+            <Card className="p-2">
             <Calendar
-               className="w-full wrounded-lg"
+               className="w-full wrounded-lg bg-card"
                mode="single"
                selected={selectDay}
                onSelect={handleDaySelect}
@@ -106,12 +110,15 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                   }
                }}
             />
+            </Card>
             <DaySheetEvents
                ref={daySheetEventsRef}
                date={selectDay}
                events={selectedDayEvents}
                onEventDatailsClose={() => setSelectedDay(undefined)}
+               onNewButtonClick={() => newEventDialogRef.current?.open()}
             />
+            <NewEventDialog ref={newEventDialogRef} />
          </div>
       </div>
    )
