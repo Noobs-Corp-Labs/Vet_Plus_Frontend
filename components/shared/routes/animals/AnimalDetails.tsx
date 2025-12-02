@@ -116,7 +116,7 @@ export default function AnimalDetails({ animalObj }: PropsType) {
                date={selectDay}
                events={selectedDayEvents}
                onEventDatailsClose={() => setSelectedDay(undefined)}
-               onNewButtonClick={() => newEventDialogRef.current?.open()}
+               onNewButtonClick={() => newEventDialogRef.current?.open({ animal: animalObj, eventDate: selectDay})}
             />
             <NewEventDialog ref={newEventDialogRef} />
          </div>
