@@ -7,7 +7,6 @@ import {
    DialogTitle,
 } from "@/components/ui/dialog"
 import { Controller, useForm } from "react-hook-form"
-import { AnimalsType } from "@/lib/tempType";
 import { EventType } from "@/lib/enums";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -15,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
 import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { AnimalResponse } from "@noobs-corp-labs/vet-plus-backend";
 
 
 export interface NewEventDialogRefType {
@@ -22,7 +22,7 @@ export interface NewEventDialogRefType {
 }
 
 export interface NewEventFormType {
-   animal: AnimalsType;
+   animal: AnimalResponse;
    type: EventType;
    description: string;
    eventDate: Date | undefined;
@@ -41,9 +41,9 @@ export const NewEventDialog = forwardRef<NewEventDialogRefType, PropsType>(({}, 
       defaultValues: {
          animal: {
             name: "Gertrudes",
-            id: "1",
+            _id: "1",
             ear_tag: "BR001",
-            breed: "Holandesa",
+            breed: {},
          },
          type: EventType.GENERAL,
          eventDate: new Date(),

@@ -1,0 +1,1 @@
+export const vetPlusBackendUrl = process.env.VET_PLUS_BACKEND_URL ?? ""

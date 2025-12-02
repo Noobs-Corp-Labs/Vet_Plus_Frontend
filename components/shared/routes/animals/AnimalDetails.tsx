@@ -10,9 +10,10 @@ import { DaySheetEvents, DaySheetEventsRefType } from "./DaySheetEvents"
 import { NewEventDialog, NewEventDialogRefType } from "../events/NewEventDialog"
 import { EventType } from "@/lib/enums"
 import { Card } from "@/components/ui/card"
+import { AnimalResponse } from "@noobs-corp-labs/vet-plus-backend"
 
 interface PropsType {
-   animalObj: AnimalsType
+   animalObj: AnimalResponse
 }
 
 function getEventsForDate(date: Date, events: CalendarEvent[]) {
@@ -55,26 +56,26 @@ export default function AnimalDetails({ animalObj }: PropsType) {
          <div className="w-[55%] h-full">
             <Card className="grid grid-cols-3 p-4 mb-4">
                <LabelValueDisplay title="Nome" text={animalObj.name} />
-               <LabelValueDisplay title="Gênero" text={animalObj.gender} />
+               {/* <LabelValueDisplay title="Gênero" text={animalObj.gender} /> */}
                <LabelValueDisplay title="Código Orelha" text={animalObj.ear_tag} />
                <div className="col-span-3">
                   <LabelValueDisplay title="Descrição" text={animalObj.description} />
                </div>
                <div className="col-span-1">
-                  <LabelValueDisplay title="Raça" text={animalObj.breed} />
+                  <LabelValueDisplay title="Raça" text={animalObj.breed.name} />
                </div>
-               <div className="col-span-1">
+               {/* <div className="col-span-1">
                   <LabelValueDisplay title="Peso" text={animalObj.weight} />
-               </div>
+               </div> */}
                <div className="col-span-1">
                   <LabelValueDisplay title="Status" text={animalObj.status} />
                </div>
                </Card>
-               {animalObj.last_predict && (
+               {/* {animalObj.last_predict && (
                   <Card className="col-span-3 p-4">
                      <LabelValueDisplay title="Ultima Recomendação" text={animalObj.last_predict} />
                   </Card>
-               )}
+               )} */}
          </div>
          <div className="w-[45%] h-full">
             <Card className="p-2">

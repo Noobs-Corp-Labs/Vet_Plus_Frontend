@@ -1,24 +1,24 @@
 "use client"
 
-import { AnimalsType } from "@/lib/tempType"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import ParamDisplay from "@/components/shared/ParamDisplay"
 import Link from "next/link"
+import { AnimalResponse } from "@noobs-corp-labs/vet-plus-backend"
 
 type PropsType = {
-   animals: AnimalsType[]
+   animals?: AnimalResponse[]
 }
 
 export default function RootPage({ animals }: PropsType) {
    return (
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 overflow-y-auto h-[89vh]">
-         {animals.map(animal => (
-            <Link href={`/animals/${animal.id}`} 
-               key={`animal_card_${animal.ear_tag || animal.id}`}
+         {animals?.map(animal => (
+            <Link href={`/animals/${animal._id}`} 
+               key={`animal_card_${animal.ear_tag || animal._id}`}
                className="block text-inherit no-underline"
             >
             <Card
-               key={`animal_card_${animal.ear_tag || animal.id}`}
+               key={`animal_card_${animal.ear_tag || animal._id}`}
                className="h-full flex p-2 hover:bg-accent"
             >
                <CardHeader>
@@ -30,9 +30,9 @@ export default function RootPage({ animals }: PropsType) {
                   <CardDescription>{animal.description}</CardDescription>
                </CardHeader>
                <CardContent>
-                  <ParamDisplay title="Gênero" value={animal.gender} />
+                  {/* <ParamDisplay title="Gênero" value={animal.} /> */}
                   <ParamDisplay title="Status" value={animal.status} />
-                  <ParamDisplay title="CD Orelha" value={animal.ear_tag} />
+                  <ParamDisplay title="CD Orelha" value={animal.ear_tag as string} />
                </CardContent>
             </Card>
             </Link>
