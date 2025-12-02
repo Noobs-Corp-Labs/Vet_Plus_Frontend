@@ -5,9 +5,8 @@ import { findAnimalById } from "../../../lib/requests/vet-plus/animalsRequests";
 
 export default async function AnimalPage({ params }: {params: Promise<{ animalId: string }>}) {
    const { animalId } = await params;
-   console.log("ID", animalId)
+   
    const animalObj = await findAnimalById(animalId);
-   console.log("A", animalObj)
    // const animalObj: AnimalsType = {
    //       id: "1",
    //       ear_tag: "BR001",
